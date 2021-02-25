@@ -182,7 +182,6 @@ export const ContactForm = () => {
           />
           <Textarea
             placeholder="Message"
-            ref={focusNode}
             bg="white"
             size="md"
             resize={"vertical"}
