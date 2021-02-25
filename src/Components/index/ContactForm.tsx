@@ -41,6 +41,7 @@ export const ContactForm = () => {
           status: "error",
           duration: 5000,
           isClosable: false,
+          position: "top-right",
         });
       } else {
         toast({
@@ -49,6 +50,7 @@ export const ContactForm = () => {
           status: "success",
           duration: 9000,
           isClosable: false,
+          position: "top-right",
         });
         setFirstName("");
         setLastName("");
@@ -66,6 +68,7 @@ export const ContactForm = () => {
         status: "error",
         duration: 5000,
         isClosable: false,
+        position: "top-right",
       });
     } else {
       toast({
@@ -74,6 +77,7 @@ export const ContactForm = () => {
         status: "success",
         duration: 9000,
         isClosable: false,
+        position: "top-right",
       });
       setFirstName("");
       setLastName("");
