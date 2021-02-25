@@ -2,7 +2,7 @@ import * as React from "react";
 
 interface Props {}
 
-function SvgMylogo(props: Props) {
+const SvgMylogo: React.FC<Props> = (props: Props) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -85,6 +85,6 @@ function SvgMylogo(props: Props) {
       />
     </svg>
   );
-}
+};
 
 export default SvgMylogo;
