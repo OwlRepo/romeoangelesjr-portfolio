@@ -1,8 +1,6 @@
 import * as React from "react";
 
-interface Props {}
-
-const SvgMytagline: React.FC<Props> = (props: Props) => {
+function SvgMytagline(props) {
   return (
     <svg xmlns="http://www.w3.org/2000/svg" width={816} height={678} {...props}>
       <g fill="#3e3e3e" fontSize={150} fontFamily="SegoeUIBlack, Segoe UI">
@@ -24,6 +22,6 @@ const SvgMytagline: React.FC<Props> = (props: Props) => {
       </g>
     </svg>
   );
-};
+}
 
 export default SvgMytagline;
