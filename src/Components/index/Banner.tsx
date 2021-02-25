@@ -1,7 +1,7 @@
 import { Flex, Image, Text } from "@chakra-ui/react";
 
 import React from "react";
-import SvgMylogo from "../../assets/Mylogo";
+import SvgMylogo from "d:/Owl/Personal/React Projects/romeoangelesjr/src/assets/Mylogo";
 import svgImages from "../../Constants/SVGImagesFromWeb";
 import { useWindowSize } from "../../CustomHooks/useWindowSize";
 
