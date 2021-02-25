@@ -21,9 +21,10 @@
   "include": [
     "next-env.d.ts",
     "**/*.ts",
-    "**/*.tsx", 
-    "src/assets/Mylogo.tsx", 
+    "**/*.tsx",
+    "src/assets/Mylogo.tsx",
     "src/assets/Mytagline.tsx",
+    "next.config.js"
   ],
   "exclude": [
     "node_modules"
