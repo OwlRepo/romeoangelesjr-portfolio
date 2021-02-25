@@ -1,8 +1,8 @@
-import React from "react";
+import * as React from "react";
 
 interface Props {}
 
-export const SvgMylogo: React.FC<Props> = (props: Props) => {
+const SvgMylogo: React.FC<Props> = (props: Props) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -86,3 +86,5 @@ export const SvgMylogo: React.FC<Props> = (props: Props) => {
     </svg>
   );
 };
+
+export default SvgMylogo;
