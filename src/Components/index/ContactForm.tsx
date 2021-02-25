@@ -9,17 +9,78 @@ import {
   VStack,
   useToast,
 } from "@chakra-ui/react";
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 
 import { useWindowSize } from "../../CustomHooks/useWindowSize";
 
 export const ContactForm = () => {
   const windowSize = useWindowSize();
   const focusNode = React.useRef<HTMLElement | null>();
+
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
+  const [email, setEmail] = useState("");
+  const [message, setMessage] = useState("");
+
   const toast = useToast();
   useEffect(() => {
     focusNode.current?.focus();
   }, []);
+
+  const onEnterHandler = (
+    e:
+      | React.KeyboardEvent<HTMLInputElement>
+      | React.KeyboardEvent<HTMLTextAreaElement>
+      | React.KeyboardEvent<HTMLButtonElement>
+  ) => {
+    if (e.key === "Enter") {
+      if (firstName == "" || lastName == "" || email == "" || message == "") {
+        toast({
+          title: "Empty fields are not allowed",
+          description: "Please fill out all the fields.",
+          status: "error",
+          duration: 5000,
+          isClosable: false,
+        });
+      } else {
+        toast({
+          title: "Email sent",
+          description: "Thank you for reaching me out!",
+          status: "success",
+          duration: 9000,
+          isClosable: false,
+        });
+        setFirstName("");
+        setLastName("");
+        setEmail("");
+        setMessage("");
+      }
+    }
+  };
+
+  const onSubmitButtonHandler = () => {
+    if (firstName == "" || lastName == "" || email == "" || message == "") {
+      toast({
+        title: "Empty fields are not allowed",
+        description: "Please fill out all the fields.",
+        status: "error",
+        duration: 5000,
+        isClosable: false,
+      });
+    } else {
+      toast({
+        title: "Email sent",
+        description: "Thank you for reaching me out!",
+        status: "success",
+        duration: 9000,
+        isClosable: false,
+      });
+      setFirstName("");
+      setLastName("");
+      setEmail("");
+      setMessage("");
+    }
+  };
   return (
     <Flex flex={1} direction="column" mt="10" mb={"5"}>
       <Flex
@@ -45,32 +106,56 @@ export const ContactForm = () => {
         borderColor={"blackAlpha.200"}
       >
         <HStack spacing={5} mb="5">
-          <Input placeholder="Firstname" bg="white" pt={6} pb={6} />
+          <Input
+            placeholder="Firstname"
+            bg="white"
+            pt={6}
+            pb={6}
+            onChange={(value) => {
+              setFirstName(value.target.value);
+              setLastName(firstName);
+            }}
+            onKeyPress={(e) => {
+              onEnterHandler(e);
+            }}
+          />
           <Input
             placeholder="Lastname"
             bg="white"
             pt={6}
             pb={6}
+            onChange={(value) => {
+              setLastName(value.target.value);
+            }}
             onKeyPress={(e) => {
-              e.key === "Enter"
-                ? toast({
-                    title: "Email sent",
-                    description: "Thank you for reaching me out!",
-                    status: "success",
-                    duration: 9000,
-                    isClosable: false,
-                  })
-                : null;
+              onEnterHandler(e);
             }}
           />
         </HStack>
         <VStack spacing={5} mb="5">
-          <Input placeholder="Email" bg="white" pt={6} pb={6} />
+          <Input
+            placeholder="Email"
+            bg="white"
+            pt={6}
+            pb={6}
+            onChange={(value) => {
+              setEmail(value.target.value);
+            }}
+            onKeyPress={(e) => {
+              onEnterHandler(e);
+            }}
+          />
           <Textarea
             placeholder="Message"
             bg="white"
             size="md"
             resize={"vertical"}
+            onChange={(value) => {
+              setMessage(value.target.value);
+            }}
+            onKeyPress={(e) => {
+              onEnterHandler(e);
+            }}
           />
         </VStack>
         <Button
@@ -78,6 +163,10 @@ export const ContactForm = () => {
           color="white"
           colorScheme="blackAlpha"
           h={"16"}
+          onKeyPress={(e) => {
+            onEnterHandler(e);
+          }}
+          onClick={onSubmitButtonHandler}
         >
           <Text>SUBMIT</Text>
         </Button>
