@@ -22,7 +22,9 @@
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx",
-    "**/*.svg", "src/assets/Mylogo.tsx", "src/assets/Mytagline.tsx",
+    "**/*.svg", 
+    "**/src/assets/Mylogo.tsx", 
+    "**/src/assets/Mytagline.tsx",
   ],
   "exclude": [
     "node_modules"
