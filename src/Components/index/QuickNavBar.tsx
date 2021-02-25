@@ -16,30 +16,30 @@ export const QuickNavBar = () => {
         variant="solid"
         bg="white"
         colorScheme="blackAlpha"
-        pt={"10"}
-        pb={"10"}
         boxShadow={"lg"}
         borderWidth="thin"
         borderColor="blackAlpha.200"
+        h={"20"}
       >
-        <Text
-          style={{
-            fontSize: 30,
-            margin: 0,
-            fontWeight: "bold",
-            color: "black",
-          }}
-        >
-          PROJECTS
-        </Text>
+        <Flex flex={1} align="center" justify="center">
+          <Text
+            style={{
+              fontSize: 30,
+              margin: 0,
+              fontWeight: "bold",
+              color: "black",
+            }}
+          >
+            PROJECTS
+          </Text>
+        </Flex>
       </Button>
       <Button
         variant="solid"
         bg="blackAlpha.800"
         color="white"
         colorScheme="blackAlpha"
-        pt={"10"}
-        pb={"10"}
+        h={"20"}
       >
         <FaDownload />
         <Text

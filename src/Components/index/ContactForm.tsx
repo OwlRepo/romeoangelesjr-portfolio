@@ -55,7 +55,7 @@ export const ContactForm = () => {
           bg="blackAlpha.800"
           color="white"
           colorScheme="blackAlpha"
-          p="7"
+          h={"16"}
         >
           <Text>SUBMIT</Text>
         </Button>
