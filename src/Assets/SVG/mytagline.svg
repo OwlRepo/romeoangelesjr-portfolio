@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="816" height="678" viewBox="0 0 816 678">
+  <g id="mytagline" transform="translate(-52 -323)">
+    <text id="INNOVATE" transform="translate(52 323)" fill="#3e3e3e" font-size="150" font-family="SegoeUIBlack, Segoe UI"><tspan x="0" y="162">INNOVATE</tspan></text>
+    <text id="DESIGN" transform="translate(52 559)" fill="#3e3e3e" font-size="150" font-family="SegoeUIBlack, Segoe UI"><tspan x="0" y="162">DESIGN</tspan></text>
+    <text id="BUILD" transform="translate(52 801)" fill="#3e3e3e" font-size="150" font-family="SegoeUIBlack, Segoe UI"><tspan x="0" y="162">BUILD</tspan></text>
+  </g>
+</svg>
