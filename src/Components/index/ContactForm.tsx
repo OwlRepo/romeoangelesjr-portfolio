@@ -15,7 +15,7 @@ import { useWindowSize } from "../../CustomHooks/useWindowSize";
 
 export const ContactForm = () => {
   const windowSize = useWindowSize();
-  const focusNode = React.useRef<HTMLElement | null>();
+  const focusNode = useRef<HTMLInputElement | null>(null);
 
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
@@ -23,9 +23,6 @@ export const ContactForm = () => {
   const [message, setMessage] = useState("");
 
   const toast = useToast();
-  useEffect(() => {
-    focusNode.current?.focus();
-  }, []);
 
   const onEnterHandler = (
     e:
@@ -33,6 +30,10 @@ export const ContactForm = () => {
       | React.KeyboardEvent<HTMLTextAreaElement>
       | React.KeyboardEvent<HTMLButtonElement>
   ) => {
+    focusNode.current?.blur();
+
+    let re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+
     if (e.key === "Enter") {
       if (firstName == "" || lastName == "" || email == "" || message == "") {
         toast({
@@ -43,11 +44,14 @@ export const ContactForm = () => {
           isClosable: false,
           position: "top-right",
         });
-      } else {
+        return;
+      }
+
+      if (re.test(email)) {
         toast({
-          title: "Email sent",
-          description: "Thank you for reaching me out!",
-          status: "success",
+          title: "Working on this",
+          description: "You can try to contact me on my accounts below.",
+          status: "info",
           duration: 9000,
           isClosable: false,
           position: "top-right",
@@ -56,11 +60,23 @@ export const ContactForm = () => {
         setLastName("");
         setEmail("");
         setMessage("");
+      } else {
+        toast({
+          title: "Invalid Email",
+          description: "Please check your email.",
+          status: "error",
+          duration: 5000,
+          isClosable: false,
+          position: "top-right",
+        });
       }
     }
   };
 
   const onSubmitButtonHandler = () => {
+    focusNode.current?.blur();
+    let re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+
     if (firstName == "" || lastName == "" || email == "" || message == "") {
       toast({
         title: "Empty fields are not allowed",
@@ -70,11 +86,14 @@ export const ContactForm = () => {
         isClosable: false,
         position: "top-right",
       });
-    } else {
+      return;
+    }
+
+    if (re.test(email)) {
       toast({
-        title: "Email sent",
-        description: "Thank you for reaching me out!",
-        status: "success",
+        title: "Working on this",
+        description: "You can try to contact me on my accounts below.",
+        status: "info",
         duration: 9000,
         isClosable: false,
         position: "top-right",
@@ -83,6 +102,15 @@ export const ContactForm = () => {
       setLastName("");
       setEmail("");
       setMessage("");
+    } else {
+      toast({
+        title: "Invalid Email",
+        description: "Please check your email.",
+        status: "error",
+        duration: 5000,
+        isClosable: false,
+        position: "top-right",
+      });
     }
   };
   return (
@@ -112,6 +140,7 @@ export const ContactForm = () => {
         <HStack spacing={5} mb="5">
           <Input
             placeholder="Firstname"
+            ref={focusNode}
             bg="white"
             pt={6}
             pb={6}
@@ -125,6 +154,7 @@ export const ContactForm = () => {
           />
           <Input
             placeholder="Lastname"
+            ref={focusNode}
             bg="white"
             pt={6}
             pb={6}
@@ -139,6 +169,7 @@ export const ContactForm = () => {
         <VStack spacing={5} mb="5">
           <Input
             placeholder="Email"
+            ref={focusNode}
             bg="white"
             pt={6}
             pb={6}
@@ -151,6 +182,7 @@ export const ContactForm = () => {
           />
           <Textarea
             placeholder="Message"
+            ref={focusNode}
             bg="white"
             size="md"
             resize={"vertical"}
