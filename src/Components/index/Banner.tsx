@@ -1,7 +1,7 @@
 import { Flex, Image, Text } from "@chakra-ui/react";
 
-import MyLogo from "../../assets/Mylogo";
 import React from "react";
+import SvgMylogo from "../../assets/Mylogo";
 import svgImages from "../../Constants/SVGImagesFromWeb";
 import { useWindowSize } from "../../CustomHooks/useWindowSize";
 
@@ -10,7 +10,7 @@ export const Banner = () => {
   return (
     <Flex direction="column" flex={1}>
       <Flex align="center" justify="center">
-        <MyLogo />
+        <SvgMylogo />
       </Flex>
       <Text
         style={{
