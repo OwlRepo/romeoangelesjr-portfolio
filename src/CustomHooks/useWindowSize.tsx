@@ -3,8 +3,8 @@ import React, { useEffect, useState } from "react";
 export const useWindowSize = () => {
   // Initialize state with undefined width/height so server and client renders match
   const [windowSize, setWindowSize] = useState({
-    width: 1920,
-    height: 1920,
+    width: 1080,
+    height: 1080,
   });
 
   useEffect(() => {
