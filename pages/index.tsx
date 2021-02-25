@@ -11,13 +11,6 @@ import {
   Textarea,
   VStack,
 } from "@chakra-ui/react";
-import {
-  FaDownload,
-  FaGithub,
-  FaGoogle,
-  FaLinkedin,
-  FaTwitter,
-} from "react-icons/fa";
 
 import { Accounts } from "../src/Components/index/Accounts";
 import { Banner } from "../src/Components/index/Banner";
