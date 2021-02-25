@@ -7,13 +7,19 @@ import {
   Text,
   Textarea,
   VStack,
+  useToast,
 } from "@chakra-ui/react";
+import React, { useEffect, useRef } from "react";
 
-import React from "react";
 import { useWindowSize } from "../../CustomHooks/useWindowSize";
 
 export const ContactForm = () => {
   const windowSize = useWindowSize();
+  const focusNode = React.useRef<HTMLElement | null>();
+  const toast = useToast();
+  useEffect(() => {
+    focusNode.current?.focus();
+  }, []);
   return (
     <Flex flex={1} direction="column" mt="10" mb={"5"}>
       <Flex
@@ -40,7 +46,23 @@ export const ContactForm = () => {
       >
         <HStack spacing={5} mb="5">
           <Input placeholder="Firstname" bg="white" pt={6} pb={6} />
-          <Input placeholder="Lastname" bg="white" pt={6} pb={6} />
+          <Input
+            placeholder="Lastname"
+            bg="white"
+            pt={6}
+            pb={6}
+            onKeyPress={(e) => {
+              e.key === "Enter"
+                ? toast({
+                    title: "Email sent",
+                    description: "Thank you for reaching me out!",
+                    status: "success",
+                    duration: 9000,
+                    isClosable: false,
+                  })
+                : null;
+            }}
+          />
         </HStack>
         <VStack spacing={5} mb="5">
           <Input placeholder="Email" bg="white" pt={6} pb={6} />
