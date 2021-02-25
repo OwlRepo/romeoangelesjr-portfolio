@@ -1,7 +1,8 @@
-import { Button, Flex, Text } from "@chakra-ui/react";
+import { Button, Flex, Link, Text } from "@chakra-ui/react";
 
 import { FaDownload } from "react-icons/fa";
 import React from "react";
+import filesFromWeb from "../../Constants/FilesFromWeb";
 import { useWindowSize } from "../../CustomHooks/useWindowSize";
 
 export const NavigationBar = () => {
@@ -33,26 +34,32 @@ export const NavigationBar = () => {
             PROJECTS
           </Text>
         </Button>
-        <Button
-          variant="solid"
-          bg="blackAlpha.800"
-          color="white"
-          colorScheme="blackAlpha"
-          pt={"10"}
-          pb="10"
+        <Link
+          href={filesFromWeb.myResume}
+          style={{ textDecoration: "none" }}
+          isExternal={true}
         >
-          <FaDownload />
-          <Text
-            style={{
-              fontSize: 15,
-              marginLeft: 15,
-              fontWeight: "bold",
-              color: "white",
-            }}
+          <Button
+            variant="solid"
+            bg="blackAlpha.800"
+            color="white"
+            colorScheme="blackAlpha"
+            pt={"10"}
+            pb="10"
           >
-            DOWNLOAD RESUME
-          </Text>
-        </Button>
+            <FaDownload />
+            <Text
+              style={{
+                fontSize: 15,
+                marginLeft: 15,
+                fontWeight: "bold",
+                color: "white",
+              }}
+            >
+              DOWNLOAD RESUME
+            </Text>
+          </Button>
+        </Link>
       </Flex>
     </>
   );

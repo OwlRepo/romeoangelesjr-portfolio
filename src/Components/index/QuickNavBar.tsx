@@ -1,7 +1,8 @@
-import { Button, Flex, Text } from "@chakra-ui/react";
+import { Button, Flex, Link, Text } from "@chakra-ui/react";
 
 import { FaDownload } from "react-icons/fa";
 import React from "react";
+import filesFromWeb from "../../Constants/FilesFromWeb";
 
 export const QuickNavBar = () => {
   return (
@@ -34,25 +35,31 @@ export const QuickNavBar = () => {
           </Text>
         </Flex>
       </Button>
-      <Button
-        variant="solid"
-        bg="blackAlpha.800"
-        color="white"
-        colorScheme="blackAlpha"
-        h={"20"}
+      <Link
+        href={filesFromWeb.myResume}
+        style={{ textDecoration: "none" }}
+        isExternal={true}
       >
-        <FaDownload />
-        <Text
-          style={{
-            fontSize: 18,
-            marginLeft: 15,
-            fontWeight: "bold",
-            color: "white",
-          }}
+        <Button
+          variant="solid"
+          bg="blackAlpha.800"
+          color="white"
+          colorScheme="blackAlpha"
+          h={"20"}
         >
-          RESUME
-        </Text>
-      </Button>
+          <FaDownload />
+          <Text
+            style={{
+              fontSize: 18,
+              marginLeft: 15,
+              fontWeight: "bold",
+              color: "white",
+            }}
+          >
+            RESUME
+          </Text>
+        </Button>
+      </Link>
     </Flex>
   );
 };
