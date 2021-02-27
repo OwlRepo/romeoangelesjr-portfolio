@@ -11,7 +11,7 @@ import {
 } from "@chakra-ui/react";
 import React, { useEffect, useRef, useState } from "react";
 
-import { useWindowSize } from "../../CustomHooks/useWindowSize";
+import useWindowSize from "../../CustomHooks/useWindowSize";
 
 export const ContactForm = () => {
   const windowSize = useWindowSize();

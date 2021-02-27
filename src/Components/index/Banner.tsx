@@ -2,7 +2,7 @@ import { Flex, Text } from "@chakra-ui/react";
 
 import { BannerLogo } from "./BannerLogo";
 import React from "react";
-import { useWindowSize } from "../../CustomHooks/useWindowSize";
+import useWindowSize from "../../CustomHooks/useWindowSize";
 
 // import MyLogo from '-!svg-react-loader!../../src/assets/svg/mylogo.svg';
 

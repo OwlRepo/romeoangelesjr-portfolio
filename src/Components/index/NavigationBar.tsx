@@ -1,11 +1,14 @@
 import { Button, Flex, Link, Text } from "@chakra-ui/react";
+import { NextPage, NextPageContext } from "next";
 
 import { FaDownload } from "react-icons/fa";
 import React from "react";
 import filesFromWeb from "../../Constants/FilesFromWeb";
-import { useWindowSize } from "../../CustomHooks/useWindowSize";
+import useWindowSize from "../../CustomHooks/useWindowSize";
 
-export const NavigationBar = () => {
+interface nextProps {}
+
+export const NavigationBar: NextPage = () => {
   const windowSize = useWindowSize();
   return (
     <>
@@ -64,3 +67,5 @@ export const NavigationBar = () => {
     </>
   );
 };
+
+NavigationBar.getInitialProps = async () => {};
