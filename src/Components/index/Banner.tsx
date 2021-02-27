@@ -20,7 +20,7 @@ export const Banner = () => {
       </Flex>
       <Text
         style={{
-          fontSize: windowSize.width < 1024 ? 50 : 130,
+          fontSize: windowSize.width < 800 ? 50 : 130,
           margin: 0,
           fontWeight: "bold",
           color: "darkgrey",
@@ -30,7 +30,7 @@ export const Banner = () => {
       </Text>
       <Text
         style={{
-          fontSize: windowSize.width < 1024 ? 50 : 130,
+          fontSize: windowSize.width < 800 ? 50 : 130,
           margin: 0,
           fontWeight: "bold",
           color: "grey",
@@ -40,7 +40,7 @@ export const Banner = () => {
       </Text>
       <Text
         style={{
-          fontSize: windowSize.width < 1024 ? 50 : 130,
+          fontSize: windowSize.width < 800 ? 50 : 130,
           margin: 0,
           fontWeight: "bold",
           color: "black",

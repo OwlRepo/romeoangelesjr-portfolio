@@ -56,7 +56,7 @@ export const QuickNavBar = () => {
               color: "white",
             }}
           >
-            RESUME
+            DOWNLOAD RESUME
           </Text>
         </Button>
       </Link>

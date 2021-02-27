@@ -12,12 +12,12 @@ const Body = () => {
   return (
     <Flex>
       <Flex
-        direction={windowSize.width < 1024 ? "column" : "row"}
+        direction={windowSize.width < 800 ? "column" : "row"}
         h={windowSize.height}
       >
         <Banner />
         <Flex direction="column" flex={1}>
-          {windowSize.width < 1024 ? <QuickNavBar /> : <NavigationBar />}
+          {windowSize.width < 800 ? <QuickNavBar /> : <NavigationBar />}
           <ContactForm />
           <Accounts />
         </Flex>
