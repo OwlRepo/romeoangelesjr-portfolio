@@ -10,17 +10,15 @@ import useWindowSize from "../../CustomHooks/useWindowSize";
 const Body = () => {
   const windowSize = useWindowSize();
   return (
-    <Flex>
-      <Flex
-        direction={windowSize.width < 800 ? "column" : "row"}
-        h={windowSize.height}
-      >
-        <Banner />
-        <Flex direction="column" flex={1}>
-          {windowSize.width < 800 ? <QuickNavBar /> : <NavigationBar />}
-          <ContactForm />
-          <Accounts />
-        </Flex>
+    <Flex
+      direction={windowSize.width < 1300 ? "column" : "row"}
+      h={windowSize.height}
+    >
+      <Banner />
+      <Flex direction="column" flex={1}>
+        {windowSize.width < 1300 ? <QuickNavBar /> : <NavigationBar />}
+        <ContactForm />
+        <Accounts />
       </Flex>
     </Flex>
   );

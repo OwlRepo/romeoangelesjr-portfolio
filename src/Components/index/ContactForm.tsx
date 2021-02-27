@@ -115,8 +115,8 @@ export const ContactForm = () => {
       <Flex
         direction="column"
         p={"7"}
-        mr={windowSize.width < 800 ? "2" : "20"}
-        ml={windowSize.width < 800 ? "2" : "20"}
+        mr={windowSize.width < 1300 ? "2" : "20"}
+        ml={windowSize.width < 1300 ? "2" : "20"}
       >
         <Heading>CONTACT ME</Heading>
         <Text mb={"2.5"}>
@@ -127,8 +127,8 @@ export const ContactForm = () => {
       <Flex
         direction="column"
         p={"7"}
-        mr={windowSize.width < 800 ? "2" : "20"}
-        ml={windowSize.width < 800 ? "2" : "20"}
+        mr={windowSize.width < 1300 ? "2" : "20"}
+        ml={windowSize.width < 1300 ? "2" : "20"}
         borderRadius={10}
         boxShadow="xl"
         borderWidth={"thin"}

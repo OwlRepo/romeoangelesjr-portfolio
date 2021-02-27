@@ -3,8 +3,11 @@ import { Button, Flex, Link, Text } from "@chakra-ui/react";
 import { FaDownload } from "react-icons/fa";
 import React from "react";
 import filesFromWeb from "../../Constants/FilesFromWeb";
+import useWindowDimensions from "../../CustomHooks/useWindowSize";
 
 export const QuickNavBar = () => {
+  const windowSize = useWindowDimensions();
+
   return (
     <Flex
       flex={1}
@@ -56,7 +59,7 @@ export const QuickNavBar = () => {
               color: "white",
             }}
           >
-            DOWNLOAD RESUME
+            {windowSize.width < 450 ? "RESUME" : "DOWNLOAD RESUME"}
           </Text>
         </Button>
       </Link>
