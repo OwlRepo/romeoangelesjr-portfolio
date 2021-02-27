@@ -10,7 +10,7 @@ import useWindowSize from "../../CustomHooks/useWindowSize";
 const Body = () => {
   const windowSize = useWindowSize();
   return (
-    <Flex bgGradient={"linear(to-b, gray,white, white)"}>
+    <Flex>
       <Flex
         direction={windowSize.width < 800 ? "column" : "row"}
         h={windowSize.height}
