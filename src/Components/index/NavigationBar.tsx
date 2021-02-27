@@ -1,19 +1,63 @@
-import { Button, Flex, Link, Text } from "@chakra-ui/react";
+import {
+  Button,
+  Flex,
+  Link,
+  Modal,
+  ModalBody,
+  ModalCloseButton,
+  ModalContent,
+  ModalFooter,
+  ModalHeader,
+  ModalOverlay,
+  Text,
+  useDisclosure,
+} from "@chakra-ui/react";
 import { NextPage, NextPageContext } from "next";
 
 import { FaDownload } from "react-icons/fa";
 import React from "react";
 import filesFromWeb from "../../Constants/FilesFromWeb";
-import useWindowSize from "../../CustomHooks/useWindowSize";
 
-interface nextProps {}
+export const NavigationBar = () => {
+  const { isOpen, onOpen, onClose } = useDisclosure();
 
-export const NavigationBar: NextPage = () => {
-  const windowSize = useWindowSize();
+  const AboutMeModal = () => {
+    return (
+      <Modal
+        scrollBehavior={"inside"}
+        closeOnEsc={true}
+        isOpen={isOpen}
+        onClose={onClose}
+        closeOnOverlayClick={true}
+        isCentered={true}
+        motionPreset={"slideInBottom"}
+      >
+        <ModalOverlay />
+        <ModalContent>
+          <ModalHeader>ABOUT ME</ModalHeader>
+          <ModalCloseButton />
+          <ModalBody>
+            <Text fontSize={"2xl"} fontWeight={"bold"}>
+              Front-End
+            </Text>
+            <Text>Mobile and Web Application Developer</Text>
+            <Text>Hi! </Text>
+          </ModalBody>
+        </ModalContent>
+      </Modal>
+    );
+  };
+
   return (
     <>
+      <AboutMeModal />
       <Flex align="center" justify="space-between" pt="10" pr="5">
-        <Button variant="ghost">
+        <Button
+          variant="ghost"
+          colorScheme="blackAlpha"
+          color="black"
+          onClick={onOpen}
+        >
           <Text
             style={{
               fontSize: 30,
@@ -67,5 +111,3 @@ export const NavigationBar: NextPage = () => {
     </>
   );
 };
-
-NavigationBar.getInitialProps = async () => {};
