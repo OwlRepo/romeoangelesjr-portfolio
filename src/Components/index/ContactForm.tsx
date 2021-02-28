@@ -119,9 +119,7 @@ export const ContactForm = () => {
         ml={windowSize.width < 1300 ? "2" : "20"}
       >
         <Heading>CONTACT ME</Heading>
-        <Text mb={"2.5"}>
-          Hello there! Lets talk about it and make it happen.
-        </Text>
+        <Text mb={"2.5"}>Hello there! Lets talk and make it happen.</Text>
       </Flex>
 
       <Flex
