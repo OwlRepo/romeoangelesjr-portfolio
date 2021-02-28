@@ -1,4 +1,5 @@
 import {
+  Box,
   Button,
   Flex,
   Link,
@@ -9,6 +10,7 @@ import {
   ModalFooter,
   ModalHeader,
   ModalOverlay,
+  Spacer,
   Text,
   useDisclosure,
 } from "@chakra-ui/react";
@@ -19,81 +21,32 @@ import React from "react";
 import filesFromWeb from "../../Constants/FilesFromWeb";
 
 export const NavigationBar = () => {
-  const { isOpen, onOpen, onClose } = useDisclosure();
-
-  const AboutMeModal = () => {
-    return (
-      <Modal
-        scrollBehavior={"inside"}
-        closeOnEsc={true}
-        isOpen={isOpen}
-        onClose={onClose}
-        closeOnOverlayClick={true}
-        isCentered={true}
-        motionPreset={"slideInBottom"}
-      >
-        <ModalOverlay />
-        <ModalContent>
-          <ModalHeader>ABOUT ME</ModalHeader>
-          <ModalCloseButton />
-          <ModalBody>
-            <Text fontSize={"2xl"} fontWeight={"bold"}>
-              Front-End
-            </Text>
-            <Text>Mobile and Web Application Developer</Text>
-            <Text>Hi! </Text>
-          </ModalBody>
-        </ModalContent>
-      </Modal>
-    );
-  };
-
   return (
     <>
-      <AboutMeModal />
-      <Flex align="center" justify="space-between" pt="10" pr="5">
-        <Button
-          variant="ghost"
-          colorScheme="blackAlpha"
-          color="black"
-          onClick={onOpen}
-        >
-          <Text
-            style={{
-              fontSize: 30,
-              margin: 0,
-              fontWeight: "bold",
-              color: "black",
-            }}
-          >
-            ABOUT ME
-          </Text>
+      <Flex align="center" justify="space-around" pt="10" pr="5">
+        <Spacer />
+        <Button {...props.projectsButtonProps}>
+          <Flex flex={1} align="center" justify="center">
+            <Text
+              style={{
+                fontSize: 30,
+                margin: 0,
+                fontWeight: "bold",
+                color: "black",
+              }}
+            >
+              PROJECTS
+            </Text>
+          </Flex>
         </Button>
-        <Button variant="ghost" colorScheme="blackAlpha" color="black">
-          <Text
-            style={{
-              fontSize: 30,
-              margin: 0,
-              fontWeight: "bold",
-              color: "black",
-            }}
-          >
-            PROJECTS
-          </Text>
-        </Button>
+
+        <Spacer />
         <Link
           href={filesFromWeb.myResume}
           style={{ textDecoration: "none" }}
           isExternal={true}
         >
-          <Button
-            variant="solid"
-            bg="blackAlpha.800"
-            color="white"
-            colorScheme="blackAlpha"
-            pt={"10"}
-            pb="10"
-          >
+          <Button {...props.downloadResumeButtonProps}>
             <FaDownload />
             <Text
               style={{
@@ -107,7 +60,29 @@ export const NavigationBar = () => {
             </Text>
           </Button>
         </Link>
+
+        <Spacer />
       </Flex>
     </>
   );
+};
+
+const props = {
+  downloadResumeButtonProps: {
+    variant: "solid",
+    bg: "blackAlpha.800",
+    color: "white",
+    colorScheme: "blackAlpha",
+    pt: "10",
+    pb: "10",
+  },
+  projectsButtonProps: {
+    variant: "solid",
+    bg: "white",
+    colorScheme: "gray",
+    boxShadow: "lg",
+    borderWidth: "thin",
+    borderColor: "blackAlpha.200",
+    h: "20",
+  },
 };

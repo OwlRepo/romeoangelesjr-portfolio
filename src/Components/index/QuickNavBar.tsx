@@ -16,15 +16,7 @@ export const QuickNavBar = () => {
       align="center"
       mt={"10"}
     >
-      <Button
-        variant="solid"
-        bg="white"
-        colorScheme="blackAlpha"
-        boxShadow={"lg"}
-        borderWidth="thin"
-        borderColor="blackAlpha.200"
-        h={"20"}
-      >
+      <Button {...props.projectsButtonProps}>
         <Flex flex={1} align="center" justify="center">
           <Text
             style={{
@@ -43,13 +35,7 @@ export const QuickNavBar = () => {
         style={{ textDecoration: "none" }}
         isExternal={true}
       >
-        <Button
-          variant="solid"
-          bg="blackAlpha.800"
-          color="white"
-          colorScheme="blackAlpha"
-          h={"20"}
-        >
+        <Button {...props.downloadResumeButtonProps}>
           <FaDownload />
           <Text
             style={{
@@ -65,4 +51,23 @@ export const QuickNavBar = () => {
       </Link>
     </Flex>
   );
+};
+
+const props = {
+  downloadResumeButtonProps: {
+    variant: "solid",
+    bg: "blackAlpha.800",
+    color: "white",
+    colorScheme: "blackAlpha",
+    h: "20",
+  },
+  projectsButtonProps: {
+    variant: "solid",
+    bg: "white",
+    colorScheme: "gray",
+    boxShadow: "lg",
+    borderWidth: "thin",
+    borderColor: "blackAlpha.200",
+    h: "20",
+  },
 };
