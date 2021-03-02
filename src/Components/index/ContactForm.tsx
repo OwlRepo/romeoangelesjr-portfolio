@@ -183,9 +183,6 @@ export const ContactForm = () => {
             onChange={(value) => {
               setMessage(value.target.value);
             }}
-            onKeyPress={(e) => {
-              onEnterHandler(e);
-            }}
           />
         </VStack>
         <Button
