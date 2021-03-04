@@ -15,12 +15,16 @@ import useWindowSize from "../../CustomHooks/useWindowSize";
 
 export const ContactForm = () => {
   const windowSize = useWindowSize();
-  const focusNode = useRef<HTMLInputElement | null>(null);
 
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
+
+  const firstNameRef = useRef<HTMLInputElement>(null);
+  const lastNameRef = useRef<HTMLInputElement>(null);
+  const emailRef = useRef<HTMLInputElement>(null);
+  const messageRef = useRef<HTMLTextAreaElement>(null);
 
   const toast = useToast();
 
@@ -33,7 +37,12 @@ export const ContactForm = () => {
     let re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
     if (e.key === "Enter") {
-      if (firstName == "" || lastName == "" || email == "" || message == "") {
+      if (
+        firstNameRef.current?.value == "" ||
+        lastNameRef.current?.value == "" ||
+        emailRef.current?.value == "" ||
+        messageRef.current?.value == ""
+      ) {
         toast({
           title: "Empty fields are not allowed",
           description: "Please fill out all the fields.",
@@ -74,7 +83,12 @@ export const ContactForm = () => {
   const onSubmitButtonHandler = () => {
     let re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
-    if (firstName == "" || lastName == "" || email == "" || message == "") {
+    if (
+      firstNameRef.current?.value == "" ||
+      lastNameRef.current?.value == "" ||
+      emailRef.current?.value == "" ||
+      messageRef.current?.value == ""
+    ) {
       toast({
         title: "Empty fields are not allowed",
         description: "Please fill out all the fields.",
@@ -135,7 +149,7 @@ export const ContactForm = () => {
         <HStack spacing={5} mb="5">
           <Input
             placeholder="Firstname"
-            ref={focusNode}
+            ref={firstNameRef}
             bg="white"
             pt={6}
             pb={6}
@@ -149,7 +163,7 @@ export const ContactForm = () => {
           />
           <Input
             placeholder="Lastname"
-            ref={focusNode}
+            ref={lastNameRef}
             bg="white"
             pt={6}
             pb={6}
@@ -164,7 +178,7 @@ export const ContactForm = () => {
         <VStack spacing={5} mb="5">
           <Input
             placeholder="Email"
-            ref={focusNode}
+            ref={emailRef}
             bg="white"
             pt={6}
             pb={6}
@@ -176,6 +190,7 @@ export const ContactForm = () => {
             }}
           />
           <Textarea
+            ref={messageRef}
             placeholder="Message"
             bg="white"
             size="md"
